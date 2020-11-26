@@ -20,18 +20,19 @@ const Player = ({currentSong, isPlaying, setIsPlaying}) =>{
         }
         
     };
+     const timeUpdateHandler = (e) =>{
+        const current = e.target.currentTime;
+        const duration = e.target.duration;
+        // console.log(current)
+        setSongInfo({...songInfo, currentTime:current, duration:duration });        
+    };
     //State
     const [songInfo , setSongInfo] = useState({
         currentTime: null,
         duration: null,
     });
 
-    const timeUpdateHandler = (e) =>{
-        const current = e.target.currentTime;
-        const duration = e.target.duration;
-        // console.log(current)
-        setSongInfo({...songInfo, currentTime:current, duration:duration });        
-    };
+   
 
     const getTime =( time )=>{
         return(
