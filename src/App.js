@@ -8,7 +8,7 @@ import Library from './components/Library';
 import Nav from './components/Nav';
 
 //Import util
-import data from './util';
+import data from './data';
 
 function App() {
 
@@ -42,6 +42,9 @@ const [libraryStatus, setLibraryStatus] = useState(false);
       setIsPlaying ={setIsPlaying}
       setSongInfo={setSongInfo}
       songInfo={songInfo}
+      songs={songs}
+      setCurrentSong = {setCurrentSong}
+      setSongs = {setSongs} 
       />
       <Library 
       songs={songs} 
