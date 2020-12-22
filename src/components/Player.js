@@ -13,7 +13,7 @@ const Player = ({songInfo,setSongInfo,audioRef,currentSong, isPlaying, setIsPlay
     
    //useEffects
     useEffect(()=> {
-         const newSongs = songs.map((song)=>{
+        const newSongs = songs.map((song)=>{
             if(song.id === currentSong.id){
                 return{
                     ...song,
@@ -27,7 +27,6 @@ const Player = ({songInfo,setSongInfo,audioRef,currentSong, isPlaying, setIsPlay
         }
     });
     setSongs(newSongs);
-       
     }, [currentSong])
         //Event handlers
     const playSongHandler = ()=>{
@@ -67,17 +66,28 @@ const Player = ({songInfo,setSongInfo,audioRef,currentSong, isPlaying, setIsPlay
         }
         playAudio(isPlaying, audioRef);
     };
-    
+    //Add the styles
+
+    const trackAnim = {
+        transform: `translateX(${songInfo.animationPercentage}%)`
+    };
+
     return(
         <div className="player">
             <div className="time-control">
                 <p>{ songInfo.duration ? getTime(songInfo.currentTime) : '0:00'}</p>
+            <div style={{background: `linear-gradient(to right, ${currentSong.color[0]},${currentSong.color[1]})`}} className="track">
                 <input onChange={dragHandler} 
                 minimum ={0} 
                 type="range" 
                 value={songInfo.currentTime} 
-                maximum={songInfo.duration}/>
+                maximum={songInfo.duration}
+
+                />
+                <div style={trackAnim} className="animate-track"></div>
+            </div>
                 <p>{getTime(songInfo.duration || 0)}</p>
+                
             </div>  
             <div className="play-control">
             <FontAwesomeIcon 

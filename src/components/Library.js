@@ -1,7 +1,6 @@
 import React from 'react';
 import LibrarySong from './LibrarySong';
 
-  
 const Library = ({setSongs,audioRef,songs, setCurrentSong, id, isPlaying, libraryStatus}) =>{
     return(
         <div className={`library ${libraryStatus ? 'active-library' : ''}`} >
@@ -13,14 +12,14 @@ const Library = ({setSongs,audioRef,songs, setCurrentSong, id, isPlaying, librar
                         id={song.id} 
                         songs= {songs}
                         setCurrentSong={setCurrentSong}
-                         song={song}
+                        song={song}
                         audioRef={audioRef}
                         isPlaying={isPlaying}
                         setSongs={setSongs}
-                         />
+                        />
                         
                     )}
-                </div>n
+                </div>
         </div>
     )
 };
